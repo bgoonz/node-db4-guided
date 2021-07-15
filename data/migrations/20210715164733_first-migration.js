@@ -1,4 +1,4 @@
-exports.up = async function(knex) {
+export async function up(knex) {
   await knex.schema
     .createTable('zoos', table => {
       table.increments('zoo_id')
@@ -16,12 +16,12 @@ exports.up = async function(knex) {
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
     })
-};
+}
 
-exports.down = async function(knex) {
+export async function down(knex) {
   await knex.schema
     .dropTableIfExists('zoo_animals')
     .dropTableIfExists('animals')
     .dropTableIfExists('species')
     .dropTableIfExists('zoos')
-};
+}
